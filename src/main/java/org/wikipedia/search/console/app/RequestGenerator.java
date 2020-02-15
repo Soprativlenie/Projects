@@ -1,15 +1,14 @@
 package org.wikipedia.search.console.app;/* Created by user on 13.02.20 */
 
 public class RequestGenerator {
+    private static String request;
 
-    private String generatedRequest;
-
-    public String getRequest() {
-        return generatedRequest;
+    public static String getRequest() {
+        return request;
     }
 
-    public void setRequest(String request) {
-        this.generatedRequest = new ApplicationConfig().urlSupplier.get("search") + request;
+    public static void setRequest(String request) {
+        RequestGenerator.request = new ApplicationConfig().urls.get("search") + request;
     }
 
 }

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ApplicationConfig {
-    Map<String, String> urlSupplier = new HashMap<String, String>(){{
+    Map<String, String> urls = new HashMap<String, String>(){{
         put("search", "https://ru.wikipedia.org/w/api.php?action=query&list=search&utf8=&format=json&srsearch=");
     }};
 
