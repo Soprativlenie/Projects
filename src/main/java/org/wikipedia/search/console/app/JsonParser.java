@@ -11,12 +11,20 @@ import java.util.Iterator;
 import java.util.List;
 
 public class JsonParser {
-    public List<String> A(String response) throws ParseException {
+    public List<String> parse(String response) throws ParseException {
+        JSONArray array = getArrayFromJson(response);
+        return getTitlesFromJsonArray(array);
+    }
+
+    private JSONArray getArrayFromJson(String response) throws ParseException {
         JSONParser parser = new JSONParser();
         JSONObject jsonObject = (JSONObject) parser.parse(response);
         JSONObject query = (JSONObject) jsonObject.get("query");
-
         JSONArray array = (JSONArray) query.get("search");
+        return array;
+    }
+
+    private List<String> getTitlesFromJsonArray(JSONArray array) {
         Iterator iterator = array.iterator();
         List<String> titles = new ArrayList<>();
         while (iterator.hasNext()) {
