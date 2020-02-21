@@ -7,16 +7,16 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Service {
-    private RequestGenerator requestGenerator = new RequestGenerator();
+    private Generator generator = new Generator();
     private RequestSender requestSender = new RequestSender();
     private JsonParser jsonParser = new JsonParser();
-    private Scanner s = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
 
     public void searchOnWiki() throws IOException, ParseException {
 
-        requestGenerator.setGeneratedRequest(s.nextLine());
-        String response = requestSender.sendRequest(requestGenerator);
+        generator.generateRequest(scanner.nextLine());
+        String response = requestSender.sendRequest(generator);
         List<String> titles = jsonParser.parse(response);
         for (String title : titles) {
             System.out.println(title);

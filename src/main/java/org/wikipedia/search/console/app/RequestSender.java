@@ -1,6 +1,8 @@
 package org.wikipedia.search.console.app;/* Created by user on 15.02.20 */
 
 import org.apache.http.HttpEntity;
+import org.apache.http.client.config.CookieSpecs;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -11,13 +13,14 @@ import java.io.IOException;
 
 public class RequestSender {
 
-    public String sendRequest(RequestGenerator generatedRequest) throws IOException {
+    public String sendRequest(Generator request) throws IOException {
 
         String result = "";
 
-        try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+        try (CloseableHttpClient httpclient = HttpClients.custom().setDefaultRequestConfig(RequestConfig.custom()
+                .setCookieSpec(CookieSpecs.STANDARD).build()).build()) {
 
-            HttpGet wikiRequest = new HttpGet(generatedRequest.getRequest());
+            HttpGet wikiRequest = new HttpGet(request.getGeneratedRequest());
 
             try (CloseableHttpResponse response = httpclient.execute(wikiRequest)) {
 
