@@ -1,6 +1,4 @@
-package pigLatin;/* Created by user on 25.02.20 */
-
-import java.util.Scanner;
+package piglatin;/* Created by user on 25.02.20 */
 
 public class TextСonverter {
 
