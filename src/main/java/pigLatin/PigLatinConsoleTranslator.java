@@ -9,8 +9,14 @@ public class PigLatinConsoleTranslator {
     private TextСonverter textСonverter = new TextСonverter();
     private Translator translator = new Translator();
 
-    public void setup() {
-        introduction.intro();
+    public PigLatinConsoleTranslator setup() {
         System.out.println(translator.translate(textСonverter.convertSourceText(scanner.nextLine())));
+        return this;
     }
+
+    public PigLatinConsoleTranslator launch() {
+        introduction.intro();
+        return this;
+    }
+
 }
