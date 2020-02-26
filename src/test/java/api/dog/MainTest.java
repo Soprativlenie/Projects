@@ -11,7 +11,7 @@ public class MainTest extends TestConfig {
     @Test
     public void getAllBreeds() {
         given()
-                .when().get(Endpoints.getListAllBreeds())
+                .when().get(Endpoints.LIST_ALL_BREEDS)
                 .then()
                 .body(ResponseMessage.getSTATUS(), equalTo(ResponseMessage.getSuccessStatus()));
     }
@@ -28,7 +28,7 @@ public class MainTest extends TestConfig {
     @Test
     public void getRandomImage() {
         given()
-                .when().get(Endpoints.getRandomImage())
+                .when().get(Endpoints.RANDOM_IMAGE)
                 .then()
                 .body(ResponseMessage.getSTATUS(), equalTo(ResponseMessage.getSuccessStatus()));
     }
@@ -36,7 +36,7 @@ public class MainTest extends TestConfig {
     @Test
     public void getImageByBreed() {
         given()
-                .when().get(Endpoints.getByBreed())
+                .when().get(Endpoints.BY_BREED)
                 .then()
                 .body(ResponseMessage.getSTATUS(), equalTo(ResponseMessage.getSuccessStatus()));
     }
@@ -44,7 +44,7 @@ public class MainTest extends TestConfig {
     @Test
     public void getBySubBreed() {
         given()
-                .when().get(Endpoints.getBySubBreed())
+                .when().get(Endpoints.BY_SUB_BREED)
                 .then()
                 .body(ResponseMessage.getSTATUS(), equalTo(ResponseMessage.getSuccessStatus()));
     }
