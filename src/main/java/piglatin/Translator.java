@@ -7,9 +7,6 @@ public class Translator {
 
 
     public StringBuilder translate(String[] words) {
-        if (words == null) {
-            System.out.println("You should enter the text");
-        }
         StringBuilder translation = new StringBuilder();
         for (int i = 0; i < words.length; i++) {
             if (vowels.isFirstLetterVowel(words[i])) {
