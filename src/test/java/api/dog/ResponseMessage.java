@@ -9,7 +9,7 @@ public class ResponseMessage {
         return SUCCESS_STATUS;
     }
 
-    public static String getSTATUS() {
+    public static String statusFieldName() {
         return STATUS;
     }
 }
