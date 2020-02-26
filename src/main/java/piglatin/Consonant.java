@@ -11,7 +11,7 @@ public class Consonant {
         String[] letters = word.split("");
         int iterator = 0;
         int count = 0;
-        while (!vowels.isVowel(letters[iterator])) {
+        while (!vowels.contains(letters[iterator])) {
             part2.append(letters[iterator]);
             iterator++;
             count++;

@@ -3,7 +3,7 @@ package piglatin;
 public class Vowels {
     private final static String[] VOWELS = {"a", "e", "i", "o", "u", "y", "A", "E", "I", "O", "U", "Y"};
 
-    public boolean isVowel(String letter) {
+    public boolean contains(String letter) {
         for (String vowel : VOWELS) {
             if (letter.equals(vowel)) {
                 return true;
@@ -12,13 +12,13 @@ public class Vowels {
         return false;
     }
 
-    public boolean isFirstLetterVowel(String word) {
-        return isVowel(word.substring(0, 1));
+    public boolean startsWithVowel(String word) {
+        return contains(word.substring(0, 1));
     }
 
     public StringBuilder modifyLineStartsWithVowel(String word) {
         StringBuilder result = new StringBuilder();
-        if (isFirstLetterVowel(word)) {
+        if (startsWithVowel(word)) {
             String ruleOfVowelEndings = "way";
             result.append(word).append(ruleOfVowelEndings);
         }
