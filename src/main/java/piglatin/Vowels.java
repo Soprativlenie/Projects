@@ -16,12 +16,4 @@ public class Vowels {
         return contains(word.substring(0, 1));
     }
 
-    public StringBuilder modifyLineStartsWithVowel(String word) {
-        StringBuilder result = new StringBuilder();
-        if (startsWithVowel(word)) {
-            String ruleOfVowelEndings = "way";
-            result.append(word).append(ruleOfVowelEndings);
-        }
-        return result;
-    }
 }

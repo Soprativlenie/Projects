@@ -1,8 +1,16 @@
 package piglatin;
 
-public class Consonant {
+public class Modifier {
     Vowels vowels = new Vowels();
 
+    public StringBuilder modifyLineStartsWithVowel(String word) {
+        StringBuilder result = new StringBuilder();
+        if (vowels.startsWithVowel(word)) {
+            String ruleOfVowelEndings = "way";
+            result.append(word).append(ruleOfVowelEndings);
+        }
+        return result;
+    }
 
     public StringBuilder modifyLineStartsWithConsonant(String word) {
 
