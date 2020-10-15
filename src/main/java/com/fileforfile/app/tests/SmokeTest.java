@@ -1,9 +1,8 @@
 package com.fileforfile.app.tests;/* Created by user on 29.07.20 */
 
 
-import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 
 public class SmokeTest extends TestBase {
@@ -14,7 +13,7 @@ public class SmokeTest extends TestBase {
     }
 
     @Test
-    public void shouldVerifyingTheBackButtonReturnsUserToPreviewScreen_WhenUserTapOnTheBacKButtonOnTheLoginScreen() {
+    public void should_ReturnUserToPreviewScreen_WhenUserTapOnTheBacKButtonOnTheLoginScreen() {
         androidPreviewPage.tapLoginButton();
         androidLoginPage.fillEmailInput("testig@mailinator.com");
         androidLoginPage.fillPasswordInput("Zaqwsx21.");
@@ -22,15 +21,15 @@ public class SmokeTest extends TestBase {
         Assert.assertEquals(androidPreviewPage.getActivity(), androidLoginPage.getCurrentActivity());
     }
 
-    @Ignore
-    public void blabla() throws InterruptedException {
+    @Test(enabled = false, description = "The test method the verifying the swipe action")
+    public void should_swipeScreen() throws InterruptedException {
         androidPreviewPage.tapSignUpButton();
         androidSignUpPage.tapDateInput();
         androidSignUpPage.swipeByCoordinates();
     }
 
     @Test
-    public void shouldFillTheSignUpForm(){
+    public void should_RegisterUser_When_TheUserFillFormAndTapTheSignUpButton() {
         androidPreviewPage.tapSignUpButton();
         androidSignUpPage
                 .enterName("Igor")
@@ -46,7 +45,7 @@ public class SmokeTest extends TestBase {
     }
 
     @Test
-    public void firstNameAlert(){
+    public void should_showErrorMessage_When_UserLeavesTheFirstNameFieldEmpty() {
         androidPreviewPage.tapSignUpButton();
         androidSignUpPage
                 .enterLastName("Bla")
@@ -61,7 +60,7 @@ public class SmokeTest extends TestBase {
     }
 
     @Test
-    public void passwordAlert(){
+    public void should_VerifyThatPasswordAlertIsDisplayed_When_UserTapThePasswordField() {
         androidPreviewPage.tapSignUpButton();
         androidSignUpPage
                 .tapPasswordInput();
@@ -69,7 +68,7 @@ public class SmokeTest extends TestBase {
     }
 
     @Test
-    public void LastNameAlert(){
+    public void should_ShowTheErrorMessage_When_UserLeavesTheLastNameInputEmpty() {
         androidPreviewPage.tapSignUpButton();
         androidSignUpPage
                 .enterName("Igor")
@@ -84,7 +83,7 @@ public class SmokeTest extends TestBase {
     }
 
     @Test
-    public void DateOfBirthAlert(){
+    public void should_ShowTheDatePicker_When_UserTapsTheDateOfBirthInput() {
         androidPreviewPage.tapSignUpButton();
         androidSignUpPage
                 .tapDateInput();
@@ -92,7 +91,7 @@ public class SmokeTest extends TestBase {
     }
 
     @Test
-    public void PasswordDoesntMatch(){
+    public void should_ShowErrorMessage_When_UserDifferentPasswordToThePasswordFields() {
         androidPreviewPage.tapSignUpButton();
         androidSignUpPage
                 .enterName("Igor")
@@ -106,7 +105,6 @@ public class SmokeTest extends TestBase {
                 .tapSingUpButton();
         Assert.assertTrue(androidSignUpPage.isConfirmPasswordErrorMessageDisplayed());
     }
-
 
 
 }

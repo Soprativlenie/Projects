@@ -134,18 +134,18 @@ public class AndroidSignUpPage extends Page {
         return this;
     }
 
-    public AndroidSignUpPage tapPasswordInput(){
+    public AndroidSignUpPage tapPasswordInput() {
         passwordInput.click();
         return this;
     }
 
-    public AndroidSignUpPage tapOkButtonOnThePasswordAlert(){
+    public AndroidSignUpPage tapOkButtonOnThePasswordAlert() {
         wait.withMessage("Password alert isn't displayed").until(ExpectedConditions.visibilityOf(passwordAlert));
         okButtonOnThePassworAlert.click();
         return this;
     }
 
-    public AndroidSignUpPage tapOkButtonOnTheDatePicker(){
+    public AndroidSignUpPage tapOkButtonOnTheDatePicker() {
         wait.withMessage("Date picker isn't displayed").until(ExpectedConditions.visibilityOf(datePicker));
         datePickerOkButton.click();
         return this;
@@ -153,7 +153,7 @@ public class AndroidSignUpPage extends Page {
 
     public void tapSingUpButton() {
 //       action.moveTo(new PointOption().withCoordinates(607,1885)).perform();
-       signUpButton.click();
+        signUpButton.click();
     }
 
     public boolean isFirstNameErrorMessageDisplayed() {
@@ -171,7 +171,8 @@ public class AndroidSignUpPage extends Page {
     public boolean isDateOfBirthErrorMessageDisplayed() {
         return dateOfBirthErrorMessage.isDisplayed();
     }
-    public boolean isDateAlertDisplayed(){
+
+    public boolean isDateAlertDisplayed() {
         return datePicker.isDisplayed();
     }
 
@@ -183,7 +184,7 @@ public class AndroidSignUpPage extends Page {
         return confirmPasswordErrorMessage.isDisplayed();
     }
 
-    public boolean isPasswordAlertDisplayed(){
+    public boolean isPasswordAlertDisplayed() {
         return wait.withMessage("Password alert isn't displayed").until(ExpectedConditions.visibilityOf(passwordAlert))
                 .isDisplayed();
     }

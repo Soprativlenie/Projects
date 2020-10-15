@@ -35,8 +35,6 @@ public class IosLoginPage extends Page {
     private IOSElement passwordInput;
 
 
-
-
     public boolean isEmailFieldDisplaying() {
         wait.withMessage("There is no email field").until(ExpectedConditions.visibilityOf(emailInput));
         return emailInput.isDisplayed();
@@ -48,7 +46,7 @@ public class IosLoginPage extends Page {
     }
 
 
-    public boolean isLoginInTextDisplaying(){
+    public boolean isLoginInTextDisplaying() {
         wait.until(ExpectedConditions.visibilityOf(logInText));
         return logInText.isDisplayed();
     }

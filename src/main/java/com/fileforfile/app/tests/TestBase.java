@@ -6,9 +6,9 @@ import com.fileforfile.app.ui.android.AndroidPreviewPage;
 import com.fileforfile.app.ui.android.AndroidSignUpPage;
 import com.fileforfile.app.ui.android.VerificationPage;
 import io.appium.java_client.android.AndroidDriver;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -23,7 +23,7 @@ public class TestBase {
     protected AndroidSignUpPage androidSignUpPage;
     protected VerificationPage verificationPage;
 
-    @Before
+    @BeforeClass
     public void setUp() throws MalformedURLException {
         capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
@@ -41,7 +41,7 @@ public class TestBase {
         verificationPage = new VerificationPage(driver);
     }
 
-    @After
+    @AfterClass
     public void tearDown() {
         driver.quit();
     }

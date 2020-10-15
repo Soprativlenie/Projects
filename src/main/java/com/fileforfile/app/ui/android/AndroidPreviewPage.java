@@ -30,7 +30,8 @@ public class AndroidPreviewPage extends Page {
                 ExpectedConditions.visibilityOf(loginButton));
         loginButton.click();
     }
-    public void tapSignUpButton(){
+
+    public void tapSignUpButton() {
         wait.withMessage("There is no Sign Up button").until(
                 ExpectedConditions.visibilityOf(signUpButton));
         signUpButton.click();
