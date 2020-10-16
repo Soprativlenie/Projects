@@ -13,7 +13,7 @@ public class SmokeTest extends TestBase {
     }
 
     @Test
-    public void should_ReturnUserToPreviewScreen_WhenUserTapOnTheBacKButtonOnTheLoginScreen() {
+    public void should_ReturnUserToPreviewScreen_When_UserTapOnTheBacKButtonOnTheLoginScreen() {
         androidPreviewPage.tapLoginButton();
         androidLoginPage.fillEmailInput("testig@mailinator.com");
         androidLoginPage.fillPasswordInput("Zaqwsx21.");
@@ -28,13 +28,13 @@ public class SmokeTest extends TestBase {
         androidSignUpPage.swipeByCoordinates();
     }
 
-    @Test
+    @Test(enabled = false, description = "")
     public void should_RegisterUser_When_TheUserFillFormAndTapTheSignUpButton() {
         androidPreviewPage.tapSignUpButton();
         androidSignUpPage
                 .enterName("Igor")
                 .enterLastName("Gabelya")
-                .enterEmail("poqw@mailinator.com")
+                .enterEmail(androidSignUpPage.getRandomEmail())
                 .tapDateInput()
                 .tapOkButtonOnTheDatePicker()
                 .tapOkButtonOnThePasswordAlert()
@@ -106,5 +106,51 @@ public class SmokeTest extends TestBase {
         Assert.assertTrue(androidSignUpPage.isConfirmPasswordErrorMessageDisplayed());
     }
 
+    @Test
+    public void should_ShowThePassword_When_UserTapsTheHidePasswordButton(){
+        String password = "Zaqwsx21.";
+        androidPreviewPage.tapSignUpButton();
+        androidSignUpPage
+                .tapPasswordInput()
+                .tapOkButtonOnThePasswordAlert()
+                .enterPassword(password)
+                .tapHideButtonOnThePasswordInput();
+        Assert.assertEquals(password, androidSignUpPage.getPassword());
+    }
 
+     @Test
+    public void should_ShowTheConfirmPassword_When_UserTapsTheHideButton(){
+        String password = "Zaqwsx21.";
+        androidPreviewPage.tapSignUpButton();
+        androidSignUpPage
+                .tapConfirmPasswordInput()
+//                .tapOkButtonOnThePasswordAlert()
+                .enterConfirmPassword(password)
+                .tapHideButtonOnTheConfirmPasswordInput();
+        Assert.assertEquals(password, androidSignUpPage.getConfirmPassword());
+     }
+
+     @Test
+    public void should_HideThePassword_When_HideButtonIsEnabledOnTheSignUpScreen(){
+         String password = "Zaqwsx21.";
+         androidPreviewPage.tapSignUpButton();
+         androidSignUpPage
+                 .tapPasswordInput()
+                 .tapOkButtonOnThePasswordAlert()
+                 .enterPassword(password)
+                 .tapHideButtonOnThePasswordInput()
+                 .tapHideButtonOnThePasswordInput();
+         Assert.assertNotEquals(password, androidSignUpPage.getPassword());
+     }
+    @Test
+    public void should_HideTheConfirmPassword_When_HideButtonIsEnabledOnTheSignUpScreen(){
+        String password = "Zaqwsx21.";
+        androidPreviewPage.tapSignUpButton();
+        androidSignUpPage
+                .tapConfirmPasswordInput()
+                .enterConfirmPassword(password)
+                .tapHideButtonOnTheConfirmPasswordInput()
+                .tapHideButtonOnTheConfirmPasswordInput();
+        Assert.assertNotEquals(password, androidSignUpPage.getConfirmPassword());
+    }
 }

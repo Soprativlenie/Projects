@@ -1,6 +1,6 @@
-package com.fileforfile.app.ui.android;/* Created by user on 30.07.20 */
+package com.fileforfile.app.pages.android;/* Created by user on 30.07.20 */
 
-import com.fileforfile.app.ui.Page;
+import com.fileforfile.app.pages.Page;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -151,8 +151,15 @@ public class AndroidSignUpPage extends Page {
         return this;
     }
 
+    public AndroidSignUpPage tapConfirmPasswordInput() {
+        confirmPasswordInput.click();
+        return this;
+    }
+
+
     public void tapSingUpButton() {
 //       action.moveTo(new PointOption().withCoordinates(607,1885)).perform();
+        driver.hideKeyboard();
         signUpButton.click();
     }
 
@@ -187,5 +194,36 @@ public class AndroidSignUpPage extends Page {
     public boolean isPasswordAlertDisplayed() {
         return wait.withMessage("Password alert isn't displayed").until(ExpectedConditions.visibilityOf(passwordAlert))
                 .isDisplayed();
+    }
+
+    public String getPassword() {
+        return passwordInput.getText();
+    }
+
+    public AndroidSignUpPage tapHideButtonOnThePasswordInput() {
+        passwordCheckbox.click();
+        return this;
+    }
+
+    public AndroidSignUpPage tapHideButtonOnTheConfirmPasswordInput() {
+        confirmPasswordCheckbox.click();
+        return this;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPasswordInput.getText();
+    }
+
+    public String getRandomEmail() {
+        String alphaNumericString = "abcdefghijklmnopqrstuvwxyz0123456789";
+        String domain = "test@mailinator.com";
+        StringBuilder builder = new StringBuilder();
+        int emailLength = (int) (1 + Math.random() * 60);
+        while (emailLength-- != 0) {
+            int character = (int) (Math.random() * alphaNumericString.length());
+            builder.append(alphaNumericString.charAt(character));
+        }
+        return builder.append(domain).toString();
+
     }
 }

@@ -1,6 +1,6 @@
-package com.fileforfile.app.ui.android;/* Created by user on 31.07.20 */
+package com.fileforfile.app.pages.android;/* Created by user on 31.07.20 */
 
-import com.fileforfile.app.ui.Page;
+import com.fileforfile.app.pages.Page;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;

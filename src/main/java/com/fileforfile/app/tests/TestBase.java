@@ -1,10 +1,11 @@
 package com.fileforfile.app.tests;/* Created by user on 03.08.20 */
 
 import com.fileforfile.app.model.MobileCapabilityType;
-import com.fileforfile.app.ui.android.AndroidLoginPage;
-import com.fileforfile.app.ui.android.AndroidPreviewPage;
-import com.fileforfile.app.ui.android.AndroidSignUpPage;
-import com.fileforfile.app.ui.android.VerificationPage;
+import com.fileforfile.app.pages.android.AndroidLoginPage;
+import com.fileforfile.app.pages.android.AndroidPreviewPage;
+import com.fileforfile.app.pages.android.AndroidSignUpPage;
+import com.fileforfile.app.pages.android.VerificationPage;
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;

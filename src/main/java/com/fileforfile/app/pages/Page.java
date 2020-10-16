@@ -1,4 +1,4 @@
-package com.fileforfile.app.ui;/* Created by user on 29.07.20 */
+package com.fileforfile.app.pages;/* Created by user on 29.07.20 */
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;

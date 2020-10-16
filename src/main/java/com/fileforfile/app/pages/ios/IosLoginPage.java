@@ -1,11 +1,10 @@
-package com.fileforfile.app.ui.ios;/* Created by user on 30.07.20 */
+package com.fileforfile.app.pages.ios;/* Created by user on 30.07.20 */
 
-import com.fileforfile.app.ui.Page;
+import com.fileforfile.app.pages.Page;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.pagefactory.iOSBy;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
