@@ -1,7 +1,7 @@
 package com.fileforfile.app.pages.android;/* Created by user on 30.07.20 */
 
 import com.fileforfile.app.pages.Page;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,7 +11,7 @@ import java.util.List;
 public class AndroidPreviewPage extends Page {
     private static final String PREVIEW_SCREEN_ACTIVITY = ".presentation.ui.activity.enter.EnterActivity";
 
-    public AndroidPreviewPage(AndroidDriver driver) {
+    public AndroidPreviewPage(AppiumDriver driver) {
         super(driver);
     }
 

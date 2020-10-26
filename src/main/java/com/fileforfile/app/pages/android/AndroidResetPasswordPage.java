@@ -1,17 +1,17 @@
 package com.fileforfile.app.pages.android;/* Created by user on 31.07.20 */
 
 import com.fileforfile.app.pages.Page;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 import java.util.List;
 
-public class ResetPasswordPage extends Page {
+public class AndroidResetPasswordPage extends Page {
     private static final String
             RESET_PASSWORD_SCREEN_ACTIVITY = ".presentation.ui.activity.resetPassword.ResetPasswordActivity";
 
-    public ResetPasswordPage(AndroidDriver driver) {
+    public AndroidResetPasswordPage(AppiumDriver driver) {
         super(driver);
     }
 

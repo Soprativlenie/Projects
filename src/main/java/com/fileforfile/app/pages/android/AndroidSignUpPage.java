@@ -1,7 +1,7 @@
 package com.fileforfile.app.pages.android;/* Created by user on 30.07.20 */
 
 import com.fileforfile.app.pages.Page;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.touch.WaitOptions;
@@ -13,9 +13,11 @@ import java.time.Duration;
 public class AndroidSignUpPage extends Page {
     private final static String SIGN_UP_SCREEN_ACTIVITY = ".presentation.ui.activity.signup.SignUpActivity";
 
-    public AndroidSignUpPage(AndroidDriver driver) {
+    public AndroidSignUpPage(AppiumDriver driver) {
         super(driver);
     }
+
+
 
     @AndroidFindBy(id = "com.fileforlife.app:id/firstNameSignUpEditText")
     private AndroidElement firstNameInput;
