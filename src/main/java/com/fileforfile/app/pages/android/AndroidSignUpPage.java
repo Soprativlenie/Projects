@@ -1,6 +1,7 @@
 package com.fileforfile.app.pages.android;/* Created by user on 30.07.20 */
 
 import com.fileforfile.app.pages.Page;
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -9,6 +10,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
+import java.util.HashMap;
 
 public class AndroidSignUpPage extends Page {
     private final static String SIGN_UP_SCREEN_ACTIVITY = ".presentation.ui.activity.signup.SignUpActivity";
@@ -83,6 +85,12 @@ public class AndroidSignUpPage extends Page {
     @AndroidFindBy(id = "com.fileforlife.app:id/invalidConfirmPasswordTextView")
     private AndroidElement confirmPasswordErrorMessage;
 
+    @AndroidFindBy(id = "com.fileforlife.app:id/privacyPolicyTextView")
+    private AndroidElement privacyLink;
+
+    @AndroidFindBy(id = "com.android.chrome:id/close_button")
+    private AndroidElement closeButtonOnTheWebView;
+
     public String getSignUpScreenActivity() {
         return SIGN_UP_SCREEN_ACTIVITY;
     }
@@ -156,6 +164,15 @@ public class AndroidSignUpPage extends Page {
         return this;
     }
 
+    public AndroidSignUpPage tapPrivacyLink() {
+        HashMap<String, String> scrollObject = new HashMap<>();
+        scrollObject.put("elementId", "com.fileforlife.app:id/privacyPolicyTextView");
+        scrollObject.put("elementId", "com.fileforlife.app:id/invalidFirstNameTextView");
+        driver.executeScript("mobile : scrollBackTo", scrollObject );
+        privacyLink.click();
+        return this;
+    }
+
 
     public void tapSingUpButton() {
 //       action.moveTo(new PointOption().withCoordinates(607,1885)).perform();
@@ -194,6 +211,10 @@ public class AndroidSignUpPage extends Page {
     public boolean isPasswordAlertDisplayed() {
         return wait.withMessage("Password alert isn't displayed").until(ExpectedConditions.visibilityOf(passwordAlert))
                 .isDisplayed();
+    }
+
+    public boolean isModalViewDisplayed() {
+        return closeButtonOnTheWebView.isDisplayed();
     }
 
     public String getPassword() {

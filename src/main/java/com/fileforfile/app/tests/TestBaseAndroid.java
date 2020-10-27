@@ -5,7 +5,6 @@ import com.fileforfile.app.pages.android.AndroidLoginPage;
 import com.fileforfile.app.pages.android.AndroidPreviewPage;
 import com.fileforfile.app.pages.android.AndroidSignUpPage;
 import com.fileforfile.app.pages.android.VerificationPage;
-import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
@@ -14,7 +13,7 @@ import org.testng.annotations.BeforeClass;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class TestBase {
+public class TestBaseAndroid {
     private DesiredCapabilities capabilities;
     private AndroidDriver driver;
     private static final String APPIUM_URL = "http://127.0.0.1:4723/wd/hub";

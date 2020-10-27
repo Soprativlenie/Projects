@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class SmokeTest extends TestBase {
+public class SmokeTestAndroid extends TestBaseAndroid {
 
     @Test
     public void shouldVerifyingTheMainContentIsLoaded_WhenUserOnThePreviewScreen() {
@@ -124,7 +124,6 @@ public class SmokeTest extends TestBase {
         androidPreviewPage.tapSignUpButton();
         androidSignUpPage
                 .tapConfirmPasswordInput()
-//                .tapOkButtonOnThePasswordAlert()
                 .enterConfirmPassword(password)
                 .tapHideButtonOnTheConfirmPasswordInput();
         Assert.assertEquals(password, androidSignUpPage.getConfirmPassword());
@@ -152,5 +151,12 @@ public class SmokeTest extends TestBase {
                 .tapHideButtonOnTheConfirmPasswordInput()
                 .tapHideButtonOnTheConfirmPasswordInput();
         Assert.assertNotEquals(password, androidSignUpPage.getConfirmPassword());
+    }
+    @Test
+    public void should_TransferTheUserToThePolicyPage_When_UserTapsToPrivacyLinkOnTheSignUpPage(){
+        androidPreviewPage.tapSignUpButton();
+        androidSignUpPage
+                .tapPrivacyLink();
+        Assert.assertTrue(androidSignUpPage.isModalViewDisplayed());
     }
 }
